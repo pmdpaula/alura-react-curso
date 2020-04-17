@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
-import Header from './Header'
+import Header from './Header';
 import Tabela from './Tabela';
 import Form from './Formulario';
+import PopUp from './PopUp';
 
 class App extends Component {
   state = {
@@ -33,6 +34,7 @@ class App extends Component {
 
   escutadorDeSubmit = autor => {
     this.setState({ autores:[...this.state.autores, autor]})
+    PopUp.exibeMensagem("success", "Autor adicionado com sucesso.")
   }
   
 
@@ -46,6 +48,8 @@ class App extends Component {
         }),
       }
     );
+
+    PopUp.exibeMensagem("success", "Autor Removido com sucesso.")
   }
 
   render() {
