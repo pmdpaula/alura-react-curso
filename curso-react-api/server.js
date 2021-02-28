@@ -44,8 +44,8 @@ app.get("/api/autor/livro", (req, res, next) => {
         var resp = rows.map((autor) => {
 
         return {
-            livro: autor.livro,
-            id:autor.id
+           livro: autor.livro,
+           id:autor.id
             }
         }
     );
@@ -67,8 +67,8 @@ app.get("/api/autor/nome", (req, res, next) => {
         var resp = rows.map((autor) => {
 
             return {
-                nome: autor.nome,
-                id:autor.id
+               nome: autor.nome,
+               id:autor.id
                 }
             }
         );
@@ -148,10 +148,10 @@ app.patch("/api/autor/:id", (req, res, next) => {
 
     db.run(
         `UPDATE autor set 
-            nome = COALESCE(?,nome), 
-            livro = COALESCE(?,livro), 
-            preco = COALESCE(?,preco) 
-            WHERE id = ?`,
+           nome = COALESCE(?,nome), 
+           livro = COALESCE(?,livro), 
+           preco = COALESCE(?,preco) 
+           WHERE id = ?`,
         [data.nome, data.livro, data.preco, req.params.id],
         function (err, result) {
             if (err) {
